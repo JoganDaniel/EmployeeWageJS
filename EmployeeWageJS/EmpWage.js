@@ -31,3 +31,28 @@ switch (empCheck) {
 }
 let empWage = emphrs * WAGE_PER_HR;
 console.log(empWage);
+
+
+function getWorkingHours(empCheck) {
+
+    switch (empCheck) {
+
+        case IS_PART_TIME: emphrs = PART_TIME_HR;
+
+            break;
+
+        case IS_FULL_TIME: emphrs = FULL_TIME_HR
+
+            break;
+
+        case IS_ABSENT: emphrs = IS_ABSENT;
+
+    }
+
+}
+
+let totalEmphrs = 0;
+empCheck = Math.floor(Math.random() * 10) % 3;
+totalEmphrs = getWorkingHours(empCheck);
+let totalEmpwage = emphrs * WAGE_PER_HR;
+console.log(totalEmpwage);
