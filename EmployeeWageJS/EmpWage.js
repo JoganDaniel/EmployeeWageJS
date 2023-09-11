@@ -4,6 +4,7 @@ const IS_FULL_TIME = 2;
 const PART_TIME_HR = 4;
 const FULL_TIME_HR = 8;
 const WAGE_PER_HR = 20;
+const NUM_OF_WORKING_DAYS=20;
 
 let empCheck = Math.floor(Math.random() * 10) % 2;
 
@@ -33,26 +34,30 @@ let empWage = emphrs * WAGE_PER_HR;
 console.log(empWage);
 
 
-function getWorkingHours(empCheck) {
-
-    switch (empCheck) {
-
-        case IS_PART_TIME: emphrs = PART_TIME_HR;
-
-            break;
-
-        case IS_FULL_TIME: emphrs = FULL_TIME_HR
-
-            break;
-
-        case IS_ABSENT: emphrs = IS_ABSENT;
-
+function getWorkingHrs()
+{
+    switch(empCheck)
+    {
+    case IS_PART_TIME: 
+        return PART_TIME_HR;
+        break;
+    case IS_FULL_TIME: return FULL_TIME_HR;
+    break;
+    case IS_ABSENT: return IS_ABSENT 
     }
-
 }
 
 let totalEmphrs = 0;
 empCheck = Math.floor(Math.random() * 10) % 3;
-totalEmphrs = getWorkingHours(empCheck);
+totalEmphrs = getWorkingHrs(empCheck);
 let totalEmpwage = emphrs * WAGE_PER_HR;
 console.log(totalEmpwage);
+
+let  hrs=0;
+for(let i=0;i<NUM_OF_WORKING_DAYS;i++)
+{
+    empcheck=Math.floor(Math.random()*10)%3;
+    hrs+=getWorkingHrs(empcheck);
+}
+totalempwage=hrs*WAGE_PER_HR;
+console.log(totalempwage);
