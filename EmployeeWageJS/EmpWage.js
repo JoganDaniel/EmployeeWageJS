@@ -90,4 +90,48 @@ while (totalEmphrs < MAX_HRS_IN_A_MONTH && totalWorkingDay < NUM_OF_WORKING_DAYS
 }
 let empWage1 = CalculateDailyWage(totalEmphrs);
 console.log("Total days :" + totalWorkingDay + " Total Hours : " + totalEmphrs + " Emp Wages " + empWage1);
-console.log(DailyWageArray)
+console.log(DailyWageArray);
+
+
+//7-A
+totalempwage = 0;
+function sum(dailyWage){
+    totalempwage += dailyWage;
+}
+DailyWageArray.forEach(sum);
+console.log(totalempwage);
+
+//B
+let dayCount = 0;
+function mapDayWithWage(dailyWage){
+    dayCount++;
+    return dayCount+"  "+dailyWage;
+}
+let mapWithDayArray = DailyWageArray.map(mapDayWithWage);
+console.log(DailyWageArray);
+
+//C
+function fullTimeWage(dailyWage){
+    return dailyWage.includes("160");
+}
+let fullTimeWageArr = mapWithDayArray.filter(fullTimeWage);
+console.log(fullTimeWageArr);
+
+//D
+console.log(mapWithDayArray.find(fullTimeWage));
+//E
+console.log(fullTimeWageArr.every(fullTimeWage));
+//F
+function partTimeWage(dailyWage) {
+    return dailyWage.includes("80");
+}
+console.log(mapWithDayArray.some(partTimeWage));
+
+//G
+function totolDayWorked(numOfDays , dailyWage){
+    if(dailyWage > 0){
+        numOfDays++;
+    }
+    return numOfDays;
+}
+console.log(DailyWageArray.reduce(totolDayWorked,0));
